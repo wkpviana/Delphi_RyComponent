@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{C7F14AE9-D8A9-4BA9-9EBF-5DC9AB9CB700}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Source\RyConvert.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RyConvert">
+        <MSBuild Projects="Source\RyConvert.dproj"/>
+    </Target>
+    <Target Name="RyConvert:Clean">
+        <MSBuild Projects="Source\RyConvert.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RyConvert:Make">
+        <MSBuild Projects="Source\RyConvert.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RyConvert"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RyConvert:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RyConvert:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
