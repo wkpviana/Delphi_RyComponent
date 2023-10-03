@@ -152,7 +152,7 @@ var
 begin
   iDays := 0;
   if JalaliMonth <= 6 then
-    iDays := (JalaliMonth * 31) + JalaliDay
+    iDays := (JalaliMonth - 1 * 31) + JalaliDay
   else
     iDays := 186 + ((JalaliMonth - 6 - 1) * 30) + JalaliDay;
   Result := iDays;
